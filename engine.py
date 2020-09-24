@@ -16,17 +16,20 @@ def crawler():
 
         #calling json objects
         html=data[0]["html"]
+        company_name="BYJU-S-K3-EDUCATION-PRIVATE-LIMITED"
+        company_cin="U80900KA2018PTC115288"
         start_pg=data[0]["start_page"]
         stop_pg=data[0]["stop_page"]
         outf=data[0]["Outfile_name"]
-        url=(html)
+        url=str(html+company_name+"/"+company_cin)
         all_list=Extract_Zauba_indi(url)
-        print(all_list)
+        #print(all_list)
 
 #Pack the details of a specific company in a list.
 def Extract_Zauba_indi(url):
     soup=parser(url)    #calling nested function
-    details=(soup.find_all("div",{"class":"container information"}))
+    #details=(soup.find_all("div",{"class":"container information"}))
+    details=(soup.find_all("div",{"class":"col-lg-12 col-md-12 col-sm-12 col-xs-12"}))
     #print(details)
     i=0
     #Scraping all tabulated Company Details from Zauba Corp
@@ -34,8 +37,10 @@ def Extract_Zauba_indi(url):
     for i in range(20):
         list1=[]
         field1=[]
+        field2=[]
         try:
-            field1 = details[0].find_all("table")[i].find_all("tr")
+            field1 = details[i].find_all("table")[0].find_all("tr")
+            field2 = details[i].find_all("h4")[0].text.strip()  #Name of dataframe
         except:
             continue
         for element in field1:
@@ -48,6 +53,7 @@ def Extract_Zauba_indi(url):
             list1.append(sub_data)
         groupedlist1.append(list1)
         dataFrame = pd.DataFrame(data = list1,columns=None) #create dataframe to export to csv
+        print(field2,"\n")
         print(dataFrame)
     return groupedlist1
 
