@@ -20,7 +20,7 @@ def crawler():
         stop_pg=data[0]["stop_page"]
         outf=data[0]["Outfile_name"]
         url=(html)
-        all_list=Extract(url)
+        all_list=Extract_Zauba_indi(url)
         print(all_list)
 
 #Pack the details of a specific company in a list.
