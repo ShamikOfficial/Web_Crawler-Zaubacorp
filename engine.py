@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup as BS
 import requests, json
 import pandas as pd
+from common import *
 
 #Parser using an User Agent
 def parser(url):
@@ -59,14 +60,7 @@ def Extract_Zauba_indi(url):
         print(field2,"\n",list1)
     return groupedlist1
 
-#function to store individual company data in xlsx format
-def store_indi(outf,groupedlist1):
-    writer = pd.ExcelWriter(outf, engine='xlsxwriter')
-    for sheet0,list1 in groupedlist1:
-        df1 = pd.DataFrame(data = list1,columns=None)
-        df1.to_excel(writer, sheet_name=sheet0,index=False,header=False)
 
-    writer.save()
 
 if __name__ == '__main__':
     crawler()
