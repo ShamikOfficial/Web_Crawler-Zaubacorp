@@ -1,8 +1,6 @@
 [
     {
-     "html": "https://www.zaubacorp.com/company/",
-     "start_page": 1,
-     "stop_page": 5,
+     "html": "https://www.zaubacorp.com/companysearchresults/",
      "Outfile_name":"outfile.csv"
      }
 ]
