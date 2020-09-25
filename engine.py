@@ -22,7 +22,8 @@ def crawler():
         stop_pg=data[0]["stop_page"]
         outf=data[0]["Outfile_name"]
         url=str(html+company_name+"/"+company_cin)
-        all_list=Extract_Zauba_indi(url)
+        groupedlist1=Extract_Zauba_indi(url)          #final individual company data packed into list of lists
+        store_indi(str(company_name+".xlsx"),groupedlist1)       #storing individual company data in excel
         #print(all_list)
 
 #Pack the details of a specific company in a list.
@@ -36,6 +37,7 @@ def Extract_Zauba_indi(url):
     groupedlist1=[]
     for i in range(20):
         list1=[]
+        list2=[]
         field1=[]
         field2=[]
         try:
@@ -51,11 +53,20 @@ def Extract_Zauba_indi(url):
                 except:
                     continue
             list1.append(sub_data)
-        groupedlist1.append(list1)
-        dataFrame = pd.DataFrame(data = list1,columns=None) #create dataframe to export to csv
-        print(field2,"\n")
-        print(dataFrame)
+        list2.append(field2[:29])
+        list2.append(list1)
+        groupedlist1.append(list2)
+        print(field2,"\n",list1)
     return groupedlist1
+
+#function to store individual company data in xlsx format
+def store_indi(outf,groupedlist1):
+    writer = pd.ExcelWriter(outf, engine='xlsxwriter')
+    for sheet0,list1 in groupedlist1:
+        df1 = pd.DataFrame(data = list1,columns=None)
+        df1.to_excel(writer, sheet_name=sheet0,index=False,header=False)
+
+    writer.save()
 
 if __name__ == '__main__':
     crawler()
