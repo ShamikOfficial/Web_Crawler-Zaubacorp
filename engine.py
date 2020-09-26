@@ -31,12 +31,17 @@ def user_choice(search_pg):
     print("Welcome to Speed Crawler")
     mode=0
     url=""
-    mode=int(input("Please enter required mode number from options below:\n1 - Download Single Data by CIN number or Top Search\n2 - Download Single Data by Exact Zaubacorp Link\n\nChoice: "))
-    if (mode==1):
-        search_key=str(input("Enter Search Keyword or CIN number: "))
+    search_key=""
+    mode=int(input("Please enter required mode number from options below:\n1 - Download Single Data by CIN number \n2 - Download Single Data by Top Search\n3 - Download Single Data by Exact Zaubacorp Link\n\nChoice: "))
+    if (mode==2):
+        search_key=str(input("Enter Search Keyword: "))
         url=zauba_top_search(search_pg,search_key)
         return url
-    if (mode==2):
+    if (mode==1):
+        search_key=(input("Enter CIN number: "))
+        url=str(search_pg+search_key)
+        return url
+    if (mode==3):
         url=str(input("Enter exact Zaubacorp link: "))
         return url
     else:
@@ -48,8 +53,7 @@ def zauba_top_search(search_pg,search_key):
     #search_key="sun" #sample search for devs
     top_link=""
     soup2=""
-    company_link=search_pg+search_key
-
+    company_link=str(search_pg+search_key)
     try:
         soup2=parser(company_link)
         search_data=(soup2.find("div",{"class":"col-xs-12"}))
