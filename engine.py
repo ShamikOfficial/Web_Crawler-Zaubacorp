@@ -32,19 +32,24 @@ def user_choice(search_pg):
     mode=0
     url=""
     search_key=""
-    mode=int(input("Please enter required mode number from options below:\n1 - Download Single Data by CIN number \n2 - Download Single Data by Top Search\n3 - Download Single Data by Exact Zaubacorp Link\n\nChoice: "))
-    if (mode==2):
-        search_key=str(input("Enter Search Keyword: "))
-        url=zauba_top_search(search_pg,search_key)
-        return url
-    if (mode==1):
-        search_key=(input("Enter CIN number: "))
-        url=str(search_pg+search_key)
-        return url
-    if (mode==3):
-        url=str(input("Enter exact Zaubacorp link: "))
-        return url
-    else:
+    temp=""
+    try:
+        mode=int(input("Please enter required mode number from options below:\n1 - Download Single Data by CIN number \n2 - Download Single Data by Top Search\n3 - Download Single Data by Exact Zaubacorp Link\n\nChoice: "))
+        if (mode==2):
+            search_key=str(input("Enter Search Keyword: "))
+            url=zauba_top_search(search_pg,search_key)
+            return url
+        if (mode==1):
+            search_key=(input("Enter CIN number: "))
+            url=str(search_pg+search_key)
+            print(url)
+            temp = requests.get(url)
+            url=temp.url
+            return url
+        if (mode==3):
+            url=str(input("Enter exact Zaubacorp link: "))
+            return url
+    except:
         print("Exiting program as no suitable response recieved")
         exit()
 
