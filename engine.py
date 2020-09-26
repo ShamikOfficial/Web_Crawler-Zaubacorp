@@ -12,21 +12,26 @@ def parser(url):
 
 #Initialize scrapping by getting required infi from config json file to extract data
 def crawler():
-    with open("config.json") as jdata:          #reading json file
-        data = json.load(jdata)                 #calling json objects
-        search_pg=data[0]["html"]               #Search link retrieved from config.json
-        #outf=data[0]["Outfile_name"]           #Sample data for dev
-        url=user_choice(search_pg)              #get user's required link to scrap
-        groupedlist1=Extract_Zauba_indi(url)                     #final individual company data packed into list of lists
-        store_indi(str(url.split("/")[-2]+".xlsx"),groupedlist1)       #storing individual company data in excel
-        print("Scrapping completed Succesfully!!!")
-
+    try:
+        with open("config.json") as jdata:          #reading json file
+            data = json.load(jdata)                 #calling json objects
+            search_pg=data[0]["html"]               #Search link retrieved from config.json
+            #outf=data[0]["Outfile_name"]           #Sample data for dev
+            url=user_choice(search_pg)              #get user's required link to scrap
+            groupedlist1=Extract_Zauba_indi(url)                     #final individual company data packed into list of lists
+            #uncomment the below line to get excel output
+            store_excel(str(url.split("/")[-2]),groupedlist1)       #storing individual company data in excel
+            #uncomment the below line to get json1 output
+            store_json(str(url.split("/")[-2]),groupedlist1)       #storing individual company data in excel
+            print("Scrapping completed Succesfully!!!")
+    except Exception as E:
+        print('Oops scrapping unsuccessful\nError: ',E)
 #Command Line Choices Display
 def user_choice(search_pg):
     print("Welcome to Speed Crawler")
     mode=0
     url=""
-    mode=int(input("Please enter required mode number from options below:\n1 - Download Single Data by CIN number or Top Search\n2 - Download Single Data by Exact Zaubicorp Link\n\nChoice: "))
+    mode=int(input("Please enter required mode number from options below:\n1 - Download Single Data by CIN number or Top Search\n2 - Download Single Data by Exact Zaubacorp Link\n\nChoice: "))
     if (mode==1):
         search_key=str(input("Enter Search Keyword or CIN number: "))
         url=zauba_top_search(search_pg,search_key)
