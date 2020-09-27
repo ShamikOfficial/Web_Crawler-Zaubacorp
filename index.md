@@ -2,6 +2,12 @@
 
 Console based Detailed Company Info Extractor from zaubacorp.com
 
+### Contributors
+- Shamik
+- Manish
+- Sreekant
+- Aryan
+
 ## About
 This project allows you to search listed companies on **zaubacorp.com** by name or CIN number and download the detailed info in excel or json format. Details extracted include:
 - Company Details 
@@ -27,12 +33,6 @@ Libraries required in python:
 
 
 ```
-
-### Contributors
-- Shamik
-- Manish
-- Sreekant
-- Aryan
 
 ### Support or Contact
 
