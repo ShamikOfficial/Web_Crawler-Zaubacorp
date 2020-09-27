@@ -24,10 +24,10 @@ Libraries required in python:
 ```
 
 ### Contributors
--Shamik
--Manish
--Sreekant
--Aryan
+- Shamik
+- Manish
+- Sreekant
+- Aryan
 
 ### Support or Contact
 
