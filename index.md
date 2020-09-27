@@ -3,7 +3,11 @@
 Console based Detailed Company Info Extractor from zaubacorp.com
 
 ## About
-This project allows you to search listed companies on **zaubacorp.com** by name or CIN number and download the detailed info in excel or json format. Details extracted include: a) Company Details b) Share Capital c) Listing and Annual Compliance Details d) Director Details e) Past Director Details
+This project allows you to search listed companies on **zaubacorp.com** by name or CIN number and download the detailed info in excel or json format. Details extracted include: - Company Details 
+- Share Capital 
+- Listing and Annual Compliance Details 
+- Director Details 
+- Past Director Details
 
 ### RUN
 
