@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+# Web Crawler - Zaubacorp
 
-You can use the [editor on GitHub](https://github.com/ShamikOfficial/Web_Crawler-Zaubacorp/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Console based Detailed Company Info Extractor from zaubacorp.com
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## About
+This project allows you to search listed companies on **zaubacorp.com** by name or CIN number and download the detailed info in excel or json format. Details extracted include: a) Company Details b) Share Capital c) Listing and Annual Compliance Details d) Director Details e) Past Director Details
 
-### Markdown
+### RUN
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Execute engine.py in console to start crawler
 
-```markdown
-Syntax highlighted code block
+```
+Python 3 or above required.
 
-# Header 1
-## Header 2
-### Header 3
+Libraries required in python: 
 
-- Bulleted
-- List
+  1) pandas 
+  2) beautifulsoup4 
+  3) xlsxWriter 
+  4) json 
+  5) requests
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ShamikOfficial/Web_Crawler-Zaubacorp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Contributors
+-Shamik
+-Manish
+-Sreekant
+-Aryan
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Email: shamik1900@gmail.com 
+
+
