@@ -2,7 +2,7 @@
 Console based Detailed Company Info Extractor from zaubacorp.com
 
 # Contributors
-Shamik, Manish, Sreekanth, Aryan
+Shamik, Manish, Sreekant, Aryan
 
 # RUN
 Execute engine.py in console to start crawler
